@@ -7,16 +7,13 @@ You should define functions for calculating the tax and for formatting the price
 Bonus Challenge: Try to incorporate input into this program, perhaps with the prompt(..) covered in "Input" earlier. You may prompt the user for their bank account balance, for example. Have fun and be creative!
 */
 
-// phones, accessories, tax, mental spending threshold for accessories
-// print purchase amount
-// check purchase vs bank balance
 
-const TAX_RATE = 0.07;
-const PHONE_PRICE = 650;
-const ACCESSORY_PRICE = 20;
-const SPENDING_THRESHOLD = 2000;
+const TAX_RATE = 0.08;
+const PHONE_PRICE = 200;
+const ACCESSORY_PRICE = 8.99;
+const SPENDING_THRESHOLD = 0;
 
-let bank_balance = 3000;
+let bank_balance = 1000;
 let purchase_amount = 0;
 
 while (purchase_amount < bank_balance) {
@@ -27,10 +24,20 @@ while (purchase_amount < bank_balance) {
   }
 }
 
-calculateTax = (purchase_amount) => {
-  purchase_amount = purchase_amount * TAX_RATE;
+calculateTax = (amount) => {
+  return amount = amount * TAX_RATE;
 }
 
-formatPrice = (purchase_amount) => {
-  return '$ ' + purchase_amount.toFixed(2);
+formatPrice = (amount) => {
+  return '$' + amount.toFixed(2);
+}
+
+purchase_amount = purchase_amount + calculateTax(purchase_amount);
+
+console.log('Your purchase is ' + formatPrice(purchase_amount))
+
+if (purchase_amount < bank_balance) {
+  console.log('You can afford this purchase');
+} else {
+  console.log('You can\'t afford this purchase');
 }
